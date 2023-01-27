@@ -13,17 +13,15 @@ table {
     border-collapse: collapse;
     width: 100%;
     height: 100%;
+    font-size: 0.9rem;
 
     th {
-        padding-top: 12px;
-        padding-bottom: 12px;
-        text-align: center;
         background-color: $primaryColor;
         color: black;
-        border: 1px solid #ddd;
-        padding: 8px;
+        width: 10%;
+        padding: 10px;
     }
-
+    
     td {
         border: 1px solid #ddd;
         padding: 8px;
@@ -60,7 +58,7 @@ table {
 /* Handle */
 ::-webkit-scrollbar-thumb {
     background: grey; 
-    border-radius: 10px;
+    border-radius: 7px;
 
         
     /* Handle on hover */
@@ -84,25 +82,25 @@ table {
 // 
 .upper__table {
     width: 60%;
-    height: 300px;
+    max-height: 300px;
     overflow: hidden;
     overflow-y: scroll;
     margin-bottom: 20px;
-
-    input {
-        width: 100%;
-        padding-top: 8px;
-        padding-bottom: 8px;
-        padding-left: 0;
-        padding-right: 0;
-    }
 
     .search__cell {
         padding-top: 0;
         padding-bottom: 0;
         padding-left: 0;
-        padding-right: 0;
-        
+        padding-right: 1;
+    }
+
+    input {
+        width: 100%;
+        padding-top: 8px;
+        padding-bottom: 8px;
+        padding-left: 20px;
+        outline: none;
+        border: none;
     }
 }
 // 

@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios';
 import { saveAs } from 'file-saver';
+import { BsArrowDownUp } from 'react-icons/bs'
 import '../tables.css'
 
 const DataTable = ({stockId, stockName}) => {
     // The initial stockData state which will be updated by the OK response of the json-server API Request.
     const [stockData, setStockData] = useState([]);
+
+    // Initial sorting state, default ascending
+    const [order, setOrder] = useState("ASC");
 
     // To retrieve the stocks data from the API endpoint after the component loads.
     useEffect(() => {
@@ -27,6 +31,26 @@ const DataTable = ({stockId, stockName}) => {
         const blob = new Blob([jsonExport], {type: "application/json"});
         saveAs(blob, `${stockName}.json`);
     }
+
+
+      // Function for sorting the data in Ascending or descending order 
+  const sortData = (col) => {
+    if (order === "ASC") {
+      // create a new array by spreading the original stocksList array
+      // then sort this new array based on the value of the selected column
+      const sorted = [...filterdData].sort((a, b) => a[col] > b[col] ? 1 : -1 );
+      // update the original stocksList with the newly sorted array
+      setStockData(sorted);
+      // change the order state to 'DESC'
+      setOrder('DESC')
+    }
+    // Repeat the same for Desc order
+    if (order === "DESC") {
+      const sorted = [...filterdData].sort((a, b) => a[col] < b[col] ? 1 : -1 );
+      setStockData(sorted);
+      setOrder('ASC')
+    }
+  }
     
   return (
     <>
@@ -35,9 +59,10 @@ const DataTable = ({stockId, stockName}) => {
             <table>
                 <thead>
                     <tr>
+                        {/* An onClick event listener on column heading to run the sortData function */}
                         <th>Stock</th>
-                        <th>Date</th>
-                        <th>Value</th>
+                        <th onClick={() => sortData('date')}>Date <BsArrowDownUp/></th>
+                        <th onClick={() => sortData('value')}>Value <BsArrowDownUp/></th>
                     </tr>
                 </thead>
                 <tbody>
