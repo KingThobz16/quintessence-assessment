@@ -1,5 +1,10 @@
 # quintessence-assessment
 
+### Note the demo uses different api endpoints and might have some issues. 
+### The local project uses a local json-server to simulate a rest api.
+
+Live Demo - https://tmetu-quintessence-assessment.netlify.app
+
 ## Run Locally
 
 ### Clone repo and install project dependencies 
