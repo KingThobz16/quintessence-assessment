@@ -3,6 +3,7 @@ import axios from 'axios';
 import { saveAs } from 'file-saver';
 import { BsArrowDownUp } from 'react-icons/bs'
 import '../tables.css'
+import { InfinitySpin } from 'react-loader-spinner';
 
 const DataTable = ({stockId, stockName}) => {
     // The initial stockData state which will be updated by the OK response of the json-server API Request.
@@ -67,15 +68,20 @@ const DataTable = ({stockId, stockName}) => {
                 </thead>
                 <tbody>
                     {/* Iterate through the filtered data and generate a row for each set of information */}
-                    {filterdData.map(({date, value}, index) => {
-                        return (
-                            <tr key={index}>
-                                <td>{stockName}</td>
-                                <td>{date}</td>
-                                <td>{value}</td>
-                            </tr>
-                        )
-                    })}
+                    {
+                        filterdData ? 
+                        (filterdData.map(({date, value}, index) => {
+                            return (
+                                <tr key={index}>
+                                    <td>{stockName}</td>
+                                    <td>{date}</td>
+                                    <td>{value}</td>
+                                </tr>
+                            )
+                        }))
+                        :
+                        <InfinitySpin color="#000" height={200} width={200} />
+                    }
                 </tbody>
             </table>
         </div>

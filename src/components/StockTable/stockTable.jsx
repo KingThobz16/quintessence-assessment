@@ -87,7 +87,15 @@ function StockTable() {
                     {/* iterate through the stocksList data and generate a row for each set of information */}
                   }).map(({id, stock, industry, sector, currency_code}) => (
                     // An onclick event listener on the table row to update the stockId and stockName state
-                    <tr key={id} onClick={() => {setStockId(id); setStockName(stock)}}>
+                    // To first check if the row has already been clicked and update the stockId accordingly.
+                    <tr key={id} onClick={() => {
+                        if (stockId === id) {
+                          setStockId(null);
+                        } else {
+                          setStockId(id)
+                        }
+                        setStockName(stock)
+                      }}>
                         <td>{stock}</td>
                         <td>{industry}</td>
                         <td>{sector}</td>

@@ -85,6 +85,7 @@ table tr:hover {
   height: 300px;
   overflow: hidden;
   overflow-y: scroll;
+  position: relative;
 }
 
 /* Lower Table Styles */
