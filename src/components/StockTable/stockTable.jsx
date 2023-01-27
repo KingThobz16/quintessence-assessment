@@ -50,6 +50,7 @@ function StockTable() {
   return (
     <>
       <h1 className='heading'>Stocks</h1>
+
       <div className='upper__table'>
           <table>
               <thead>
@@ -62,7 +63,7 @@ function StockTable() {
                   </tr>
               </thead>
               <tbody>
-                  <tr>
+                  <tr className="search_row">
                     <td className="search__cell" colSpan="4">
                       {/* update the searchTerm with the input value */}
                       <input onChange={(e) => {setSearchTerm(e.target.value)}} type="text" className="search__input" placeholder="Search" />

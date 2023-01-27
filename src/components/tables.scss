@@ -1,5 +1,6 @@
 // Variables
-$primaryColor : #2196F3;
+$primaryColor : #000;
+$textColor : #fff;
 // Variables
 
 
@@ -13,13 +14,14 @@ table {
     border-collapse: collapse;
     width: 100%;
     height: 100%;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
 
     th {
         background-color: $primaryColor;
-        color: black;
+        color: $textColor;
         width: 10%;
         padding: 10px;
+        cursor: pointer;
     }
     
     td {
@@ -28,10 +30,10 @@ table {
     }
 
     tr:nth-child(even) {
-        background-color: #f2f2f2;
+        background-color: #dcdbdb;
     }
     tr:hover {
-        background-color: #ddd;
+        background-color: rgb(176, 176, 176);
     }
     
 }
@@ -52,14 +54,12 @@ table {
   
 /* Track */
 ::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 5px grey; 
+    box-shadow: inset 0 0 5px $primaryColor; 
 }
    
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    background: grey; 
-    border-radius: 7px;
-
+    background: $primaryColor; 
         
     /* Handle on hover */
     &:hover {
@@ -69,7 +69,8 @@ table {
 
 /* Button */
     ::-webkit-scrollbar-button {
-    background: grey;
+    background: $primaryColor;
+    height: 38px;
 }
 // 
 // 
@@ -86,6 +87,10 @@ table {
     overflow: hidden;
     overflow-y: scroll;
     margin-bottom: 20px;
+
+    .search_row {
+        height: 37px;
+    }
 
     .search__cell {
         padding-top: 0;
