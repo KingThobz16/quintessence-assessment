@@ -45,12 +45,6 @@ table tr:hover {
   background: #000;
 }
 
-/* Button */
-::-webkit-scrollbar-button {
-  background: #000;
-  height: 38px;
-}
-
 /* Scroller Styles */
 /* Upper Table Styles */
 .upper__table {
