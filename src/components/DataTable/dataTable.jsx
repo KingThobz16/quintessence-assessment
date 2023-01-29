@@ -19,7 +19,7 @@ const DataTable = ({stockId, stockName}) => {
         // To update the stocksData state with the response data
             .then(res => setStockData(res.data))
             .catch(err => console.log(err));
-    }, []);
+    }, [stockId]);
 
     // Filter the data to be exported.
     // We filter the data by returning only the data with a stock_id which matches the stockId prop
