@@ -22,8 +22,8 @@ function StockTable() {
     // Get the stocks data using the json-server api endpoint
     axios.get('http://localhost:5000/Stocks')
     // Update the stocksList state with the response data
-    .then(res => setStocksList(res.data))
-      .catch(err => console.log(err));
+    .then(res => setStocksList((stocksList) => stocksList.length !== 0 ? stocksList : res.data))
+    .catch(err => console.log(err));
   }, [stockId]);
 
 
